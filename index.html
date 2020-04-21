@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>jQuery Calculator</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Orbitron"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
   </head>
-
   <body>
-    <div id="calculator">
-      <form id="form">
-        <input type="text" name="number" id="num1" />
-        <input type="text" name="number" id="num2" />
-        <div id="contanswer">
-          <p id="answer"></p>
-        </div>
-        <div id="buttons">
-          <button id="add">+</button>
-          <button id="subtract">-</button>
-          <button id="multiply">*</button>
-          <button id="divide">/</button>
-        </div>
-      </form>
+    <input id="num1" placeholder="Enter first number" />
+    <input id="num2" placeholder="Enter second number" />
+    <div id="calc">
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button>0</button>
+      <button>C</button>
+      <button>.</button>
+      <button>=</button>
+      <button class="operator">+</button>
+      <button class="operator">-</button>
+      <button class="operator">x</button>
+      <button class="operator">/</button>
+      <div id="result"></div>
     </div>
     <script
-      src="http://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"
     ></script>
-    <script src="./main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>

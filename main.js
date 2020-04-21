@@ -1,33 +1,51 @@
-$(document).ready(function() {
-  $("#add").on("click", function(e) {
-    e.preventDefault()
-    var a = $("#num_one").val()
-    var b = $("#num_two").val()
-    var c = Number(a) + Number(b)
-    $(".answer").html(c)
-  })
+$(document).ready(function () {
+  const state = {
+    num1: "",
+    oper: "",
+    num2: "",
+  }
 
-  $("#subtract").on("click", function(e) {
+  $("#calc").on("click", "button", function (e) {
     e.preventDefault()
-    var a = $("#num_one").val()
-    var b = $("#num_two").val()
-    var c = Number(a) - Number(b)
-    $(".answer").html(c)
-  })
 
-  $("#multiply").on("click", function(e) {
-    e.preventDefault()
-    var a = $("#num_one").val()
-    var b = $("#num_two").val()
-    var c = Number(a) * Number(b)
-    $(".answer").html(c)
-  })
+    var val = $(this).html()
 
-  $("#divide").on("click", function(e) {
-    e.preventDefault()
-    var a = $("#num_one").val()
-    var b = $("#num_two").val()
-    var c = Number(a) / Number(b)
-    $(".answer").html(c)
+    if (val === "x" || val === "/" || val === "+" || val === "-") {
+      if (state.num2 !== "") {
+        operation()
+      }
+
+      state.oper = val
+    } else if (val === "=") {
+      operation()
+    } else if (val === "C") {
+      state.num1 = ""
+      state.oper = ""
+      state.num2 = ""
+    } else {
+      if (state.oper === "") {
+        state.num1 += val
+        $("#result").html(state.num1)
+      } else {
+        state.num2 += val
+        $("#result").html(state.num2)
+      }
+    }
   })
+  function operation() {
+    if (state.oper === "+") {
+      state.num1 = Number(state.num1) + Number(state.num2)
+    } else if (state.oper === "-") {
+      state.num1 = Number(state.num1) - Number(state.num2)
+    } else if (state.oper === "x") {
+      state.num1 = Number(state.num1) * Number(state.num2)
+    } else if (state.oper === "/") {
+      state.num1 = Number(state.num1) / Number(state.num2)
+    }
+
+    $("#result").html(state.num1)
+
+    state.oper = ""
+    state.num2 = ""
+  }
 })
